@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/shufa")
+@RequestMapping("/index")
 public class IndexController {
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String index(){
         System.out.println("this is index");
-        return "index";
+        return "index1";
     }
 
     /*
     英文书法教程页面
      */
-    @RequestMapping("/index/english")
+    @RequestMapping("/english")
     public String english(){
         return "english";
     }
@@ -25,7 +25,7 @@ public class IndexController {
     /*
     名人书法欣赏
      */
-    @RequestMapping("/index/famous")
+    @RequestMapping("/famous")
     public String famous(){
         return "famous";
     }
@@ -33,7 +33,7 @@ public class IndexController {
     /*
     根据字体来筛选或者查询教程
      */
-    @RequestMapping("/index/font")
+    @RequestMapping("/font")
     public String font(){
         return "font";
     }
