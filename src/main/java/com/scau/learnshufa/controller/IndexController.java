@@ -1,17 +1,18 @@
 package com.scau.learnshufa.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/index")
+//@RequestMapping("/home")
+//@RequestMapping("/shufa")
 public class IndexController {
 
-    @RequestMapping("/")
-    public String index(){
-        System.out.println("this is index");
-        return "index1";
+    @GetMapping("/index")
+    public String index1(){
+        return "index";
     }
 
     /*
