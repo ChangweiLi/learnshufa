@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
+    <title>用户登录-书法学习网</title>
 </head>
 <body>
-login
+<div class="sf-form">
+    <!--    <form>-->
+    <div class="sf-input">
+        <label for="username"> 用户名 </label>
+        <input id="username" type="text" maxlength="20" name="username" placeholder="请输入姓名" minlength="3" required>
+
+    </div>
+    <div class="sf-input">
+        <label for="userpasswd">密码</label>
+        <input id="userpasswd" type="password" maxlength="20" name="userpasswd" placeholder="请输入密码" minlength="6"
+               required>
+    </div>
+    <div>
+        <button class="sf-loginbtn" id="btn-login" onclick="login()" style="float: right">登录</button>
+    </div>
+    <!--    </form>-->
+</div>
 </body>
+<script>
+    function login() {
+        window.alert("登陆成功");
+    }
+</script>
 </html>
