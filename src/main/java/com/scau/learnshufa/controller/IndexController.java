@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 //@RequestMapping("/home")
-//@RequestMapping("/shufa")
+//@RequestMapping("")
 public class IndexController {
 
     @GetMapping("/index")
-    public String index1(){
+    public String index(){
         return "index";
     }
 
