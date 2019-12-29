@@ -1,46 +1,50 @@
 package com.scau.learnshufa.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-//@Controller
-//@RequestMapping("")
-@RestController
+import com.scau.learnshufa.entity.User;
+import com.scau.learnshufa.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+import java.util.Map;
+
+@Controller
+@RequestMapping("/index")
 public class IndexController {
+
+    @Autowired(required = false)
+    private UserMapper userMapper;
 
     @RequestMapping("/")
     public String index(){
-        System.out.println("哈哈");
         return "index";
     }
 
-    /*
-    英文书法教程页面
-     */
-    @RequestMapping("/english")
-    public String english(){
-        return "english";
+
+
+
+
+    @RequestMapping("/users")
+    public String getAllUsers(Model model){
+        List<User> userList = userMapper.findAllUser();
+//        ModelAn modelAndView = new ModelAndView();
+//        modelAndView.addObject("userList", userList);
+        model.addAttribute("userList",userList);
+        return "users";
     }
 
-    /*
-    名人书法欣赏
-     */
-    @RequestMapping("/famous")
-    public String famous(){
-        return "famous";
+    @RequestMapping("/test")
+//    public ModelAndView test(){
+//        ModelAndView modelAndView = new ModelAndView("test");
+//        modelAndView.addObject("name","李长伟");
+//        return modelAndView;
+//    }
+   public String test(Map<Object,Object> map){
+        map.put("name","张三");
+        return "test.ftl";
     }
-
-    /*
-    根据字体来筛选或者查询教程
-     */
-    @RequestMapping("/font")
-    public String font(){
-        return "font";
-    }
-
-
-
 
 }

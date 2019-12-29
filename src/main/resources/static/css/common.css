@@ -1,54 +1,119 @@
-.body{
+body {
     margin: 0;
     padding: 0;
     color: #FFFFFF;
 }
-.sf-nav{
 
+footer {
+    float: top;
 }
-.header-div{
+
+/*.sf-nav {*/
+/*    margin: auto;*/
+/*    width: 100%;*/
+/*    min-width: 1000px;*/
+/*    background: #ff3139;*/
+/*}*/
+
+.header-div {
     display: inline;
 }
-.sf-head{
+
+.sf-head {
     /*flex: fit-content;*/
     /*position: ;*/
     /*display: inline;*/
     float: top;
     width: 100%;
-    height: 40px;
-    margin:auto;
+    height: 30px;
+    /*margin: auto;*/
+    padding: 3px;
     background-color: #FFFFFF;
     border-style: outset none outset none;
-}
-.sf-center{
-
-}
-.sf-box{
-
+    border-bottom: 1px solid #8D8D8D;
+    min-width: 1000px;
 }
 
+.sf-center {
+    height: auto;
+    min-height: 1000px;
+    width: 70%;
+    margin: auto 15% auto 15%;
+    /*background: aquamarine;*/
+}
+.box{
+    /*display: flow;*/
+    width: 100%;
+    height: auto;
+    min-width: 1000px;
+}
+
+.abox-list {
+    /*flex: auto;*/
+    /*display: block;*/
+    width: 50%;
+    min-width: 500px;
+    height: 400px;
+}
+
+.abox-title {
+    display: inline-block;
+    float: top;
+    height: 30px;
+
+}
+
+.i-title {
+    /*display: inline;*/
+    float: left;
+    height: auto;
+}
+
+.i-more {
+    float: right;
+
+}
+
+.wt-img {
+    float: left;
+    width: 25%;
+    min-width: 100px;
+}
+
+.wt-list {
+    float: right;
+    width: 60%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.login-body{
+background-color: gainsboro;
+}
 
 /* login 表单样式*/
-.sf-form{
-    background-color: cadetblue;
-    width: 150px;
+.sf-form {
+    background-color: #ffffff;
+    width: 400px;
+    height: 250px;
+    min-width: 400px;
     /*min-width: 200px;*/
-    height: 100px;
     /*min-height: 100px;*/
     border-radius: inherit;
     border-style: wave;
-    padding: 10%;
-    margin: 5%;
+    padding: 10px;
+    margin: 20% auto;
 
 }
-.sf-input{
-    width: auto;
-    height: auto;
+
+.sf-div-input {
+    margin: 10px auto 10px auto;
 }
-.sf-loginbtn{
+
+.sf-loginbtn {
 
     width: 60px;
-    height:30px;
+    height: 30px;
     border: 1px solid #989898;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;

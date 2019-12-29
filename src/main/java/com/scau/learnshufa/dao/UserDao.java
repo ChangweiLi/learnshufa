@@ -6,9 +6,9 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-@Mapper
+//@Mapper
 public interface UserDao {
-  @Select("select * from user")
-  List<User> findAlluser();
+//  @Select("select * from user")
+//  List<User> findAlluser();
 
 }
