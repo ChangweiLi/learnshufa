@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/register")
 public class RegisterController {
 
-    @GetMapping("")
+    @RequestMapping("/register")
     public String register(){
-        return "./page/register";
+        return "register";
     }
 
-    @PostMapping("/add")
-    public String Success(){
-        if(true){
+    /** 添加注册信息 */
+    @PostMapping("/register/submit")
+    public String submit(){
+        if(true){  // 验证信息如果正确则添加到用户
             return "login";
         }
-        else{
-            return "./page/register";
+        else{ // 否则返回注册页面
+            return "register";
         }
     }
 

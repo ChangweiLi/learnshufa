@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{css/common.css}" href="/static/css/common.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>注册-书法学习网</title>
 </head>
-<body>
-register
+<body class="login-body">
+<div class="sf-register-form">
+    <div class="input-group sf-div-input">
+        <span class="input-group-addon" id="basic-addon1">昵称</span>
+        <input type="text" class="form-control" placeholder="2-10个英文或者汉字" aria-describedby="username">
+    </div>
+    <div class="input-group sf-div-input">
+        <span class="input-group-addon" id="basic-addon2">密码</span>
+        <input type="text" class="form-control" placeholder="6-16个字符" aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group sf-div-input">
+        <span class="input-group-addon">地区</span>
+        <input type="text" class="form-control" placeholder="北京" aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group sf-div-input">
+        <span class="input-group-addon">电子邮箱</span>
+        <input type="text" class="form-control" placeholder="12345@qq.com" aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group sf-div-input">
+        <span class="input-group-addon">出生日期</span>
+        <input type="date" class="form-control" placeholder="1995-05-23" aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group sf-div-input">
+        <span class="input-group-addon">手机号码</span>
+        <input type="text" class="form-control" placeholder="12345@qq.com" aria-describedby="basic-addon2">
+    </div>
+    <button class="btn btn-success btn-block" style="float: right" onclick="register_submit()">注册提交</button>
+</div>
 </body>
+<script>
+    function register_submit() {
+        // var url = "[[@{/login/check}]]";
+        // var data = {}
+        // $.ajax({
+        //    type: "POST",
+        //    dataType: "json";
+        // });
+        alert("登陆成功")
+    }
+</script>
 </html>

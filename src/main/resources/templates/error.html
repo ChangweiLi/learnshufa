@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>404-对不起！您访问的页面不存在</title>
@@ -40,7 +40,7 @@
 
         <p>》<a style="cursor:pointer" οnclick="history.back()">返回上一页面</a></p>
 
-        <p>》<a href="https://www.daixiaorui.com">返回网站首页</a></p>
+        <p>》<a th:href="@{/}">返回网站首页</a></p>
 
     </div>
 

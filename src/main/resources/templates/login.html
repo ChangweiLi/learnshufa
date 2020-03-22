@@ -11,31 +11,14 @@
     <title>登录-书法学习网</title>
 </head>
 <body class="login-body">
-<!--<div class="sf-form">-->
-<!--    <form>-->
-<!--    <div class="sf-input">-->
-<!--        <label for="username"> 用户名 </label>-->
-<!--        <input id="username" type="text" maxlength="20" name="username" placeholder="请输入姓名" minlength="3" required>-->
-<!---->
-<!--    </div>-->
-<!--    <div class="sf-input">-->
-<!--        <label for="userpasswd">密码</label>-->
-<!--        <input id="userpasswd" type="password" maxlength="20" name="userpasswd" placeholder="请输入密码" minlength="6"-->
-<!--               required>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <button class="sf-loginbtn" id="btn-login" onclick="login()" style="float: right">登录</button>-->
-<!--    </div>-->
-<!--    </form>-->
-<!--</div>-->
 <div class="sf-form">
     <div class="input-group sf-div-input">
         <span class="input-group-addon" id="basic-addon1">用户</span>
-        <input type="text" class="form-control" placeholder="username" aria-describedby="username">
+        <input type="text" class="form-control" placeholder="username" id="username">
     </div>
     <div class="input-group sf-div-input">
         <span class="input-group-addon" id="basic-addon2">密码</span>
-        <input type="text" class="form-control" placeholder="password" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="password" id="pwd">
     </div>
     <div class="sf-div-input">
         <input type="checkbox" class="checkbox" style="float: left">
@@ -43,12 +26,28 @@
         <a class="text-danger" style="float: right" th:href="@{remenmber}">忘记密码</a>
     </div>
     <button class="btn btn-success btn-block" style="float: right" onclick="login()">登陆</button>
-
 </div>
 </body>
 <script>
+    // var map = new Map();
     function login() {
-        window.alert("登陆成功");
+        var data = {username:$("#username").val(),password:$("#pwd").val()};
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "[[@{/login/submit}]]",
+            data: JSON.stringify(data),
+            // dataType: "json",
+            success: function (msg) {
+                alert("登陆成功,即将转到首页"+msg);
+                // location.href()
+            },
+            error:function (msg) {
+                alert("请您输入正确的密码" + msg);
+                // location.href();
+            }
+        });
     }
+
 </script>
 </html>
