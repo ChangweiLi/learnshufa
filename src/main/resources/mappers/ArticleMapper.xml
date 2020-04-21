@@ -40,6 +40,36 @@
     -->
     text
   </sql>
+  <select id="selectArticles" resultMap="ResultMapWithBLOBs">
+    select  *
+    from sf_article
+  </select>
+  <select id="selectLatestSevenArticle" resultMap="ResultMapWithBLOBs">
+    select *
+    from sf_article
+    order by publish_time desc
+    limit 7
+  </select>
+  <select id="selectMostPopularSevenArticle" resultMap="ResultMapWithBLOBs">
+    select *
+    from sf_article
+    order by readNum desc
+    limit 7
+  </select>
+  <select id="selectLatestTenEnglishArticles" resultMap="BaseResultMap">
+    select *
+    from sf_article
+    where topic = "英文书法欣赏"
+    order by publish_time desc
+    limit 10
+  </select>
+  <select id="selectMostPopularEightEnglishArticles" resultMap="BaseResultMap">
+    select *
+    from sf_article
+    where topic = "英文书法欣赏"
+    order by readNum desc
+    limit 8
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     <!--
       WARNING - @mbg.generated

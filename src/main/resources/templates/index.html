@@ -1,51 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
-    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{css/common.css}" href="/static/css/common.css">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta charset="UTF-8">
-    <title>书法学习网</title>
-</head>
+<head th:replace="header::head-fragment(title,path)"></head>
 <body>
-<!--头部广告或者相关链接-->
-<header class="sf-head">
-    <!--头部左侧 时间日期 天气-->
-    <div class="header-div" style="float: left">
-        2019/11/23 10:26:33 晴 30摄氏度
-    </div>
-    <!--中间logo部分-->
-    <div class="header-div" style="margin: 0 auto;text-align: center">
-        <a th:href="@{index/}">书法学习网</a>
-    </div>
-    <!--右侧登录用户信息-->
-    <div class="header-div" style="float: right">
-        <a th:href="@{login}">用户登录</a>/<a th:href="@{register}">注册</a>
-    </div>
-</header>
-<!--导航栏-->
-<nav class="navbar navbar-default" role="navigation" style="background-color: #34b7a7;">
-    <div class="container-fluid">
-        <div>
-            <!--向左看齐-->
-            <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a th:href="@{/}" style="color: #ffffff">首页</a></li>
-                <li><a th:href="@{famous}" style="color: #ffffff">书法作品欣赏</a></li>
-                <li><a th:href="@{famous}" style="color: #ffffff">名人书法欣赏</a></li>
-                <li><a th:href="@{font}" style="color: #ffffff">书法字体</a></li>
-                <li><a th:href="@{writingbrush}" style="color: #ffffff">毛笔书法教程</a></li>
-                <li><a th:href="@{pen}" style="color: #ffffff">钢笔书法教程</a></li>
-                <li><a th:href="@{hardpen}" style="color: #ffffff">硬笔书法教程</a></li>
-                <li><a th:href="@{english}" style="color: #ffffff">英语书法</a></li>
-                <li><a th:href="@{resources}" style="color: #ffffff">书法资料</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!--中间部分-->
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
 <div class="sf-center container">
     <div class="box row">
         <div class="abox-list col-lg-6 col-xs-12">
@@ -53,12 +11,12 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">最新文章</a>
+                            <a th:href="@{famous}">最新文章</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
                 </p>
             </div>
             <!--         文章图片-->
@@ -84,33 +42,52 @@
                     </small>
                 </h3>
                 <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏1</a>
+                <p th:each="article: ${latestArticles}">
+                    <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
+                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏2</a>
+            </div>
+        </div>
+        <div class="abox-list col-lg-6 col-xs-12">
+            <!-- 模快标题-->
+            <div class="abox-title">
+                <h3 class="i-title">
+                    <small>
+                        <b>
+                            <a th:href="@{famous}">最热文章</a>
+                        </b>
+                    </small>
+                </h3>
+                <p class="i-more">
+                    <a th:href="@{famous}">更多>></a>
                 </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏3</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏4</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏5</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏6</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏7</a>
+            </div>
+            <!--         文章图片-->
+            <div class="abox-img">
+                <div class="abox-img-a">
+                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">
+                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="历代名家福字书">
+                    </a>
+                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">历代名家福字书</a>
+                </div>
+                <div class="ib">
+                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">
+                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="关于福字的历史">
+                    </a>
+                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">关于福字的历史</a>
+                </div>
+            </div>
+            <!--         文章列表-->
+            <div class="abox-wt-list">
+                <h3>
+                    <small>
+                        <a href="#" title="春节贴福字有什么讲究" target="_blank">春节贴福字有什么讲究</a>
+                    </small>
+                </h3>
+                <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
+                <p th:each="article: ${mostPopularArticles}">
+                    <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
+                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>
@@ -119,12 +96,40 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">最热文章</a>
+                            <a th:href="@{famous}">书法作品欣赏</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
+                </p>
+            </div>
+            <!--         文章图片-->
+            <div class="abox-img">
+                <div class="abox-img-a">
+                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">
+                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="历代名家福字书">
+                    </a>
+                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">历代名家福字书</a>
+                </div>
+                <div class="ib">
+                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">
+                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="关于福字的历史">
+                    </a>
+                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">关于福字的历史</a>
+                </div>
+            </div>
+            <!--         文章列表-->
+            <div class="abox-wt-list">
+                <h3>
+                    <small>
+                        <a href="#" title="春节贴福字有什么讲究" target="_blank">春节贴福字有什么讲究</a>
+                    </small>
+                </h3>
+                <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
+                <p th:each="article: ${mostPopularArticles}">
+                    <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
+                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>
@@ -133,12 +138,40 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">书法作品欣赏</a>
+                            <a th:href="@{famous}">名人书法欣赏</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
+                </p>
+            </div>
+            <!--         文章图片-->
+            <div class="abox-img">
+                <div class="abox-img-a">
+                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">
+                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="历代名家福字书">
+                    </a>
+                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">历代名家福字书</a>
+                </div>
+                <div class="ib">
+                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">
+                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="关于福字的历史">
+                    </a>
+                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">关于福字的历史</a>
+                </div>
+            </div>
+            <!--         文章列表-->
+            <div class="abox-wt-list">
+                <h3>
+                    <small>
+                        <a href="#" title="春节贴福字有什么讲究" target="_blank">春节贴福字有什么讲究</a>
+                    </small>
+                </h3>
+                <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
+                <p th:each="article: ${mostPopularArticles}">
+                    <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
+                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>
@@ -147,12 +180,12 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">名人书法欣赏</a>
+                            <a th:href="@{famous}">毛笔书法欣赏</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
                 </p>
             </div>
         </div>
@@ -161,12 +194,12 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">毛笔书法欣赏</a>
+                            <a th:href="@{famous}">钢笔书法欣赏</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
                 </p>
             </div>
         </div>
@@ -175,12 +208,12 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">钢笔书法欣赏</a>
+                            <a th:href="@{famous}">硬笔书法欣赏</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
                 </p>
             </div>
         </div>
@@ -189,12 +222,12 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">硬笔书法欣赏</a>
+                            <a th:href="@{famous}">英语书法欣赏</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
                 </p>
             </div>
         </div>
@@ -203,36 +236,19 @@
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}" style="color: #ffffff">英语书法欣赏</a>
+                            <a th:href="@{famous}">书法相关资料</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">书法相关资料</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
+                    <a th:href="@{famous}">更多>></a>
                 </p>
             </div>
         </div>
     </div>
 </div>
-<!--尾部 链接 版权说明-->
-<footer>
-    <p>Copyright @2019-2020 书法学习网 版权所有
-    <p>我们采用的作品包括内容和图片全部来源于网络用户和读者投稿，我们不确定投稿用户享有完全著作权，根据《信息网络传播权保护条例》，
-        如果侵犯了你的权利，请联系:1369990551@qq.com, 我站将及时删除。</p>
-</footer>
+<div th:replace="footer.html"></div>
 </body>
+<script>
+</script>
 </html>

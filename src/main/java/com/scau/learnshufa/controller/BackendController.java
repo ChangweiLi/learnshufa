@@ -1,25 +1,22 @@
 package com.scau.learnshufa.controller;
 
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.scau.learnshufa.entity.User;
 import com.scau.learnshufa.mapper.UserMapper;
 import com.scau.learnshufa.utils.LayuiJson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.JsonParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * 后台管理模块
+ */
 @Controller
 //@RequestMapping("")
 public class BackendController {
@@ -34,13 +31,9 @@ public class BackendController {
 //    显示用户页
     @RequestMapping("/backend/showusers")
     public String showUsers(){
-        return "page/showusers";
+        return "showusers";
     }
 
-//    @RequestMapping("/backend/getusers")
-//    public String getUsers(){
-//        return
-//    }
 
     @RequestMapping("/backend/articles")
     public String showArticles(){
@@ -71,7 +64,7 @@ public class BackendController {
     }
     @RequestMapping("/backend/newarticle")
     public String newArtile(){
-        return "page/newarticle";
+        return "newarticle";
     }
 
 }

@@ -21,6 +21,10 @@
     -->
     ID, name, description, content, pepole, photo, backup
   </sql>
+  <select id="selectTypes" resultMap="BaseResultMap">
+    select *
+    from sf_type
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

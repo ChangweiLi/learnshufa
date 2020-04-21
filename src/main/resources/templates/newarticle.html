@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>发布文章-书法学习平台</title>
+    <link rel="stylesheet" th:href="@{{path}/plugins/editormd/css/editormd.min.css(path=${#request.getContextPath()})}"/>
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>
+    <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{{path}/css/common.css(path=${#request.getContextPath()})}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{{path}/plugins/editormd/editormd.js(path=${#request.getContextPath()})}"></script>
+</head>
+<body>
+<!--头部广告或者相关链接-->
+<header class="sf-head">
+    <!--头部左侧 时间日期 天气-->
+    <div class="header-div" style="float: left">
+        2019/11/23 10:26:33 晴 30摄氏度
+    </div>
+    <!--中间logo部分-->
+    <div class="header-div" style="margin: 0 auto;text-align: center">
+        <a th:href="@{index}">书法学习网</a>
+    </div>
+    <!--右侧登录用户信息-->
+    <div class="header-div" style="float: right">
+        <a th:href="@{login}">用户登录</a>/<a th:href="@{register}">注册</a>
+    </div>
+</header>
+<!--导航栏-->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div>
+            <!--向左看齐-->
+            <ul class="nav navbar-nav navbar-left">
+                <!--                style="color: #ffffff"-->
+                <li class="active"><a th:href="@{index}">首页</a></li>
+                <li><a th:href="@{famous}">书法作品欣赏</a></li>
+                <li><a th:href="@{famous}">名人书法欣赏</a></li>
+                <li><a th:href="@{font}">书法字体</a></li>
+                <li><a th:href="@{writingbrush}">毛笔书法教程</a></li>
+                <li><a th:href="@{pen}">钢笔书法教程</a></li>
+                <li><a th:href="@{hardpen}">硬笔书法教程</a></li>
+                <li><a th:href="@{english}">英语书法</a></li>
+                <li><a th:href="@{resources}">书法资料</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--文章发布主体-->
+<form class="sf-center">
+    <header>
+        <label for="article_title">
+            <input id="article_title" type="text" placeholder="请输入文章标题">
+        </label>
+    </header>
+    <div id="test-editormd">
+        <label for="editormd-markdowm"></label>
+        <textarea style="display:none;" id="editormd-markdowm" name="editormd-markdown"></textarea>
+<!--        第二个隐藏文本域，用来构造生成的HTML方法，方便表单POST提交，这里的name可以任意取后台接收以这个name为准-->
+        <label for="editormd-text"></label>
+        <textarea class="editormd-html-textarea"  id="editormd-text" name="editormd-text"></textarea>
+    </div>
+    <div id="more_information">
+        <div>
+            <label>文章标签:</label>
+            <div class="">
+
+            </div>
+
+        </div>
+        <div>
+            <label>文章分类:</label>
+        </div>
+        <div>
+            <label>文章类型</label>
+        </div>
+        <div>
+            <button class="btn-primary" onclick="submitArticle()">发布文章</button>
+            <button class="btn-primary" onclick="saveArticle()">保存草稿</button>
+            <button class="btn-primary" onclick="window.history.back(-1)">返回</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    var testEditor;
+    $(function () {
+        testEditor = editormd("test-editormd", { //div的id属性值
+            width: "90%",
+            height: 720,
+            syncScrolling: "single",
+            // theme: "dark",
+            tex:true,
+            flowChart:true,
+            path: "[[@{plugins/editormd/lib/}]]",  // 路径
+            saveHTMLToTextarea: true,  // 方便posy提交表单
+            toolbarAutoFixed: true,
+            imageUpload:true,
+            imageFormats:["jpg","jpeg","gif","png","bmp","webp"],
+            imageUploadURL: "/uploadimg",
+            onload: function () {
+                this.width("100%");
+                this.height(720);
+            }
+        });
+    });
+
+    // 提交文章表单
+    function submitArticle() {
+        var title = $("#article_title").val();
+        var content = $("#editormd-markdowm").val();
+        var text = $("#editormd-text").val();
+        var data = {"title":title,"content":content,"text":text};
+        console.log(text);
+        $.ajax({
+            type:"POST",
+            url:"[[@{submitarticle}]]",
+            data:data,
+            success:function (msg) {
+                alert("发布成功");
+            },
+            error:function (msg) {
+                alert("发布失败");
+            }
+        });
+    }
+
+    /**
+     * 保存表单
+     */
+    function saveArticle(){
+
+    }
+</script>
+</body>
+</html>

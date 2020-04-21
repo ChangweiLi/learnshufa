@@ -14,12 +14,12 @@
 <body>
 <!--添加用户，删除用户，修改用户 查询-->
 <div class="layui-form layui-form-item">
-    <div class="layui-input-block">
-        <label>
-            <input type="text" name="title" placeholder="搜索" class="layui-input">
-        </label>
-        <button class="layui-btn" lay-submit lay-filter="btnSearch">搜索</button>
-    </div>
+<!--    <div class="layui-input-block">-->
+<!--        <label>-->
+<!--            <input type="text" name="title" placeholder="搜索" class="layui-input">-->
+<!--        </label>-->
+<!--        <button class="layui-btn" lay-submit lay-filter="btnSearch">搜索</button>-->
+<!--    </div>-->
 </div>
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
@@ -50,9 +50,14 @@
                     [
                         [ //表头
                             {type: 'checkbox', fixed: 'left'}
-                            , {field: 'userId', title: 'ID', width: 80, sort: true, fixed: 'left'}
-                            , {field: 'userName', title: '用户名', width: 80}
-                            , {field: 'email', title: '邮箱', width: 80}
+                            , {field: 'userId', title: 'ID', width: 100, sort: true, fixed: 'left'}
+                            , {field: 'userName', title: '用户名', width: 150}
+                            , {field: 'password', title: '密码', width: 150}
+                            , {field: 'email', title: '邮箱', width: 150}
+                            , {field: 'register_data', title: '注册日期', width: 150}
+                            , {field: 'birthday', title: '生日', width: 150}
+                            , {field: 'age', title: '年龄', width: 80}
+                            , {field: 'phone', title: '电话号码', width: 150}
                         ]
                     ]
                 , done: function (res, curr, count) {

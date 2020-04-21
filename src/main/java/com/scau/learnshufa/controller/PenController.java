@@ -3,6 +3,9 @@ package com.scau.learnshufa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * 钢笔书法模块
+ */
 @Controller
 public class PenController {
 
@@ -11,6 +14,6 @@ public class PenController {
     */
     @RequestMapping("/pen")
     public String famous(){
-        return "./page/pen";
+        return "pen";
     }
 }

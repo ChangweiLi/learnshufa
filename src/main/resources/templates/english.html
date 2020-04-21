@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::head-fragment(title,path)"></head>
+<body>
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
+<!--中间部分-->
+<div class="sf-center container">
+    <!--    路径导航-->
+    <ol class="breadcrumb">
+        <li><a th:href="@{index}">首页</a></li>
+        <li class="active"><a th:href="@{english}">英文书法</a></li>
+    </ol>
+    <!--    主页内容抬头简介-->
+    <h4>英文书法作品欣赏</h4>
+    <p>英文书法频道为大家分享一些优雅的英文书法字体以及一些英文书法的自学资料,包括有英文字体书写技巧/英文习题练习要点/英文字体设计英文书法作品欣赏等.</p>
+    <!--    每个功能模块的div-->
+    <div>
+        <h4>英语书法的知识</h4>
+        <p>　英文作为一种国际通用语言的重要性已经得到了我国基础教育的普遍认可。英文书法相对于汉语书法而言,其实要简单的多，写好英文文字则没有引起社会的足够重视。
+            其实写得一手漂亮的英文书法字体也很重要的.....<a href="">阅读更多>></a></p>
+    </div>
+    <!--    最新文章-->
+    <div class="container" style="margin: 0;padding:0;">
+        <h4>《英文书法》热门文章</h4>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <ul th:each="article: ${mostPopularArticles}">
+            <li>
+                <a th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>
+                <p th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>
+            </li>
+        </ul>
+    </div>
+    <!--    最新文章-->
+    <div class="container" style="margin: 0;padding:0;">
+        <h4>《英文书法》最新文章</h4>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <ul th:each="article: ${lastestArticles}">
+            <li>
+                <a th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>
+                <p th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--尾部 链接 版权说明-->
+<div th:replace="footer.html"></div>
+</body>
+</html>

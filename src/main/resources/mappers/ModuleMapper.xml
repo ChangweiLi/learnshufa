@@ -18,6 +18,10 @@
     -->
     ID, name, attributes, backup
   </sql>
+  <select id="selectModules" resultMap="BaseResultMap">
+    select *
+    from sf_module
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

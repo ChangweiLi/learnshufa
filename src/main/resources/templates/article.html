@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::head-fragment(title,path)"></head>
+<body style="display: flex;flex-flow: column;min-height: 100%">
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
+<!--中间部分-->
+<div class="sf-center container">
+    <!--    路径导航-->
+    <ol class="breadcrumb">
+        <li><a th:href="@{index}">首页</a></li>
+        <li class="active"><a th:href="@{english}"  th:text="${article.getTopic()}">英文书法</a></li>
+        <li th:text="${article.getName()}">正文</li>
+    </ol>
+    <div class="article">
+        <div id="article-title">
+            <h2 th:text="${article.getName()}"></h2>
+            <p th:text="${article.getPublishTime()}"></p>
+        </div>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <div id="article-body">
+            <p th:text="${article.getText()}"></p>
+        </div>
+    </div>
+    <div>
+        上一篇：<a>嘎嘎嘎嘎嘎</a>
+        下一篇: <a>fagagagag</a>
+    </div>
+</div>
+<div th:replace="footer.html"></div>
+</body>
+</html>

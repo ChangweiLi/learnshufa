@@ -10,7 +10,8 @@
     <meta charset="UTF-8">
     <title>登录-书法学习网</title>
 </head>
-<body class="login-body">
+<!--th:style="'background-image:url('+@{images/background2.png}+')'">-->
+<body class="login-body" style=" background:linear-gradient(45deg,#4bb0ca 0,#ebc45c 100%)">
 <div class="sf-form">
     <div class="input-group sf-div-input">
         <span class="input-group-addon" id="basic-addon1">用户</span>
@@ -18,7 +19,11 @@
     </div>
     <div class="input-group sf-div-input">
         <span class="input-group-addon" id="basic-addon2">密码</span>
-        <input type="text" class="form-control" placeholder="password" id="pwd">
+        <input type="password" class="form-control" placeholder="password" id="pwd">
+    </div>
+    <div class="sf-div-input">
+        <img th:src="@{defaultKaptcha}">
+        <input type="text" id="tryCode" name="tryCode" style="width: 60px">
     </div>
     <div class="sf-div-input">
         <input type="checkbox" class="checkbox" style="float: left">
@@ -31,22 +36,40 @@
 <script>
     // var map = new Map();
     function login() {
-        var data = {username:$("#username").val(),password:$("#pwd").val()};
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            url: "[[@{/login/submit}]]",
-            data: JSON.stringify(data),
-            // dataType: "json",
-            success: function (msg) {
-                alert("登陆成功,即将转到首页"+msg);
-                // location.href()
-            },
-            error:function (msg) {
-                alert("请您输入正确的密码" + msg);
-                // location.href();
-            }
-        });
+        var username = $("#username").val().trim();
+        var pwd = $("#pwd").val().trim();
+        var code = $("#tryCode").val().trim();
+        if (username === "") {
+            alert("请填写账号");
+        } else if (pwd === "") {
+            alert("请填写密码");
+        } else if (code === "") {
+            alert("请填写验证码")
+        } else {
+            var data = {"username": username, "pwd": pwd,"tryCode":code};
+            $.ajax({
+                type: "POST",
+                url: "[[@{/login/submit}]]",
+                data: data,
+                success: function (msg) {
+                    console.log(msg);
+                    switch (msg) {
+                        case "OK":
+                            window.location.href = "/shufa/login/" + username;
+                            break;
+                        case "PWDError":
+                            alert("密码错误...");
+                            break;
+                        case "USERError":
+                            alert("账号错误...");
+                            break;
+                    }
+                },
+                error: function (msg) {
+                    alert(msg);
+                }
+            });
+        }
     }
 
 </script>

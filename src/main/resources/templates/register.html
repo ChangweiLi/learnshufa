@@ -10,43 +10,63 @@
     <meta charset="UTF-8">
     <title>注册-书法学习网</title>
 </head>
-<body class="login-body">
+<body class="login-body" style=" background:linear-gradient(45deg,#4bb0ca 0,#ebc45c 100%)">
 <div class="sf-register-form">
     <div class="input-group sf-div-input">
-        <span class="input-group-addon" id="basic-addon1">昵称</span>
-        <input type="text" class="form-control" placeholder="2-10个英文或者汉字" aria-describedby="username">
+        <span class="input-group-addon">用户名</span>
+        <input type="text" class="form-control" placeholder="2-10个英文或者汉字" id="username">
     </div>
     <div class="input-group sf-div-input">
-        <span class="input-group-addon" id="basic-addon2">密码</span>
-        <input type="text" class="form-control" placeholder="6-16个字符" aria-describedby="basic-addon2">
+        <span class="input-group-addon">密码</span>
+        <input type="password" class="form-control" placeholder="6-16个字符" id="password">
     </div>
     <div class="input-group sf-div-input">
-        <span class="input-group-addon">地区</span>
-        <input type="text" class="form-control" placeholder="北京" aria-describedby="basic-addon2">
+        <span class="input-group-addon">别名</span>
+        <input type="text" class="form-control" placeholder="北京" id="alias">
     </div>
     <div class="input-group sf-div-input">
         <span class="input-group-addon">电子邮箱</span>
-        <input type="text" class="form-control" placeholder="12345@qq.com" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="12345@qq.com" id="email">
     </div>
     <div class="input-group sf-div-input">
         <span class="input-group-addon">出生日期</span>
-        <input type="date" class="form-control" placeholder="1995-05-23" aria-describedby="basic-addon2">
+        <input type="date" class="form-control" placeholder="1995-05-23" id="birthday">
     </div>
     <div class="input-group sf-div-input">
         <span class="input-group-addon">手机号码</span>
-        <input type="text" class="form-control" placeholder="12345@qq.com" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="12345@qq.com" id="phone">
     </div>
-    <button class="btn btn-success btn-block" style="float: right" onclick="register_submit()">注册提交</button>
+    <div class="input-group sf-div-input">
+        <button class="btn btn-success btn-block" style="float: right" onclick="register_submit()">注册提交</button>
+    </div>
+
 </div>
 </body>
 <script>
+    // 提交注册表单
     function register_submit() {
-        // var url = "[[@{/login/check}]]";
-        // var data = {}
-        // $.ajax({
-        //    type: "POST",
-        //    dataType: "json";
-        // });
+        var username = $("#username").val().trim(),
+            password = $("#password").val().trim(),
+            alias = $("#alias").val().trim(),
+            email = $("#email").val().trim(),
+            birthday = $("#birthday").val().trim(),
+            phone = $("#phone").val().trim();
+        var data = {username: username, password: password, alias: alias,email:email,birthday:birthday,phone:phone};
+        $.ajax({
+            type: "POST",
+            url: "[[@{/register/submit}]]",
+            data: data,
+            success: function (msg) {
+                console.log(msg);
+                if(msg === "OK"){
+                        alert("注册成功...跳转到");
+                        window.location.href = "[[@{/login}]]";
+                }
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
         alert("登陆成功")
     }
 </script>

@@ -63,6 +63,19 @@ public interface UserMapper {
      */
     int updateByPrimaryKey(User record);
 
-//    @Select("select * from sf_user")
+
+    /**
+     * 查询所有的用户信息
+     * @return
+     */
     List<User> findAllUser();
+
+    /**
+     * 根据用户名查询单个用户
+     * @param username
+     * @return
+     */
+    User selectByUsername(String username);
+
+
 }

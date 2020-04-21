@@ -3,6 +3,9 @@ package com.scau.learnshufa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * 书法字体模块
+ */
 @Controller
 public class FontController {
 
@@ -11,6 +14,6 @@ public class FontController {
  */
     @RequestMapping("/font")
     public String font(){
-        return "./page/font";
+        return "font";
     }
 }

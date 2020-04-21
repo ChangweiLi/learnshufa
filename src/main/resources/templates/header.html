@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head-fragment(title,path)">
+    <meta charset="UTF-8">
+    <title>书法学习网</title>
+    <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{css/common.css}" href="/static/css/common.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="书法学习平台，书法学习，书法，学习">
+    <meta name="description" content="书法学习平台是一个提供给书法学习爱好者的web平台，包括毛笔书法、硬笔书法、各种行家书法和古今中驰名的书法家相关书法">
+
+</head>
+<body>
+<!--头部广告或者相关链接-->
+<header class="sf-head" th:fragment="header-fragment">
+    <div class="header-div" style="float: left">
+        2019/11/23 10:26:33 晴 30摄氏度
+    </div>
+    <div class="header-div" style="margin: 0 auto;text-align: center">
+        <a th:href="@{index}">书法学习网</a>
+    </div>
+    <div class="header-div" style="float: right">
+        <a th:href="@{login}">用户登录</a>/<a th:href="@{register}">注册</a>
+    </div>
+</header>
+<!--导航栏-->
+<nav class="navbar navbar-default" role="navigation" th:fragment="nav-fragment">
+    <div class="container-fluid">
+        <div>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a th:href="@{index}">首页</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="menu">书法模块<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+<!--                        <li><a th:href="@{famous}"></a></li>-->
+                        <li><a th:href="@{writingbrush}">毛笔书法</a></li>
+                        <li><a th:href="@{pen}">钢笔书法</a></li>
+                        <li><a th:href="@{hardpen}">硬笔书法</a></li>
+                        <li><a th:href="@{english}">英语书法</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">字体分类教程<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{nul}">行书</a></li>
+                        <li><a th:href="@{nul}">草书</a></li>
+                        <li><a th:href="@{nul}">隶书</a></li>
+                        <li><a th:href="@{nul}">楷书</a></li>
+                        <li><a th:href="@{nul}">魏碑</a></li>
+                        <li><a th:href="@{nul}">颜体</a></li>
+                        <li><a th:href="@{font}">其他..</a></li>
+                    </ul>
+                </li>
+                <li><a th:href="@{famous}">名人书法欣赏</a></li>
+                <li><a th:href="@{resources}">资料下载</a></li>
+                <li><a href="#">学习讨论区</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{newarticle}">发布博客</a></li>
+                <li><a th:href="@{newresources}">资源</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,16 +1,27 @@
 /*body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}*/
+html{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;
+}
 body {
     margin: 0;
     padding: 0;
     color: #FFFFFF;
+    height: 100%;
 }
 footer{
     font-size: 0.8em;
+    /*float: bottom;*/
+    /*position: absolute;*/
+    bottom: 0;
+    background-color: #d7d4f0;
+    text-align: center;
 }
 
-footer {
-    float: top;
-}
 
 .header-div {
     display: inline;
@@ -49,7 +60,7 @@ footer {
 .abox-title {
     min-height: 40px;
     max-height: 50px;
-    background-color: #34b7a7;
+    background-color: #e8ffcc;
     position: relative;
     overflow: hidden;
 }
@@ -86,18 +97,17 @@ footer {
     padding: 5px;
 }
 
-.login-body {
-    background-color: gainsboro;
-}
-
 /* login 表单样式*/
 .sf-form {
     background-color: #ffffff;
-    width: 400px;
+    width: 390px;
     height: 250px;
-    min-width: 400px;
-    border-radius: inherit;
-    border-style: wave;
+    min-width: 390px;
+    /*border: 2px solid gainsboro;*/
+    border-radius: 5px;
+    box-shadow: #8D8D8D 3px 3px 3px 3px;
+    /*border-radius: 25px;*/
+    /*border-style: wave;*/
     padding: 10px;
     margin: 20% auto;
 }
@@ -105,7 +115,7 @@ footer {
 .sf-register-form{
     background-color: #ffffff;
     width: 700px;
-    height: auto;
+    /*height: auto;*/
     /*min-width: 400px;*/
     border-radius: inherit;
     border-style: wave;
@@ -120,7 +130,7 @@ footer {
 .sf-loginbtn {
     width: 60px;
     height: 30px;
-    border: 1px solid #989898;
+    /*border: 1px solid #989898;*/
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -129,4 +139,31 @@ footer {
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px 1px #666;
+}
+.article{
+    width: auto;
+    min-height: 800px;
+}
+
+.login-body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+    margin: 10px;
+}
+/* 书法文章标题输入框的样式*/
+#article-title{
+    outline-style: none;
+    border: 0px;
+    border-radius: 3px;
+    padding: 13px 14px;
+    width: 620px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS",
+      Monaco, monospace, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei",
+      FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+
+
 }
