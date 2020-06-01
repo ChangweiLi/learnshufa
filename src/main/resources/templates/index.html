@@ -5,18 +5,21 @@
 <header class="sf-head" th:replace="header::header-fragment"></header>
 <nav th:replace="header::nav-fragment"></nav>
 <div class="sf-center container">
+    <div class="carousel">
+
+    </div>
     <div class="box row">
         <div class="abox-list col-lg-6 col-xs-12">
             <div class="abox-title">
                 <h3 class="i-title">
                     <small>
                         <b>
-                            <a th:href="@{famous}">最新文章</a>
+                            <a th:href="@{~/shufa/famous}">最新文章</a>
                         </b>
                     </small>
                 </h3>
                 <p class="i-more">
-                    <a th:href="@{famous}">更多>></a>
+                    <a th:href="@{~/shufa/famous}">更多>></a>
                 </p>
             </div>
             <!--         文章图片-->
@@ -44,7 +47,7 @@
                 <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
                 <p th:each="article: ${latestArticles}">
                     <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
-                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
+                    <a href="#" th:title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>
@@ -87,7 +90,7 @@
                 <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
                 <p th:each="article: ${mostPopularArticles}">
                     <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
-                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
+                    <a href="#" th:title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>
@@ -129,7 +132,7 @@
                 <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
                 <p th:each="article: ${mostPopularArticles}">
                     <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
-                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
+                    <a href="#" th:title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>
@@ -171,7 +174,7 @@
                 <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
                 <p th:each="article: ${mostPopularArticles}">
                     <a href="#" target="_blank" th:title="${article.getTopic()}" th:text="${article.getTopic()}">[书法作品欣赏]</a>
-                    <a href="#" title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
+                    <a href="#" th:title="${article.getName()}" class="s3" target="_blank" th:text="${article.getName()}">2019春节新春祝福——福字欣赏2</a>
                 </p>
             </div>
         </div>

@@ -12,36 +12,102 @@
         <li class="active"><a th:href="@{english}">英文书法</a></li>
     </ol>
     <!--    主页内容抬头简介-->
-    <h4>英文书法作品欣赏</h4>
-    <p>英文书法频道为大家分享一些优雅的英文书法字体以及一些英文书法的自学资料,包括有英文字体书写技巧/英文习题练习要点/英文字体设计英文书法作品欣赏等.</p>
+    <div class="div-module-description">
+        <h4>英文书法作品欣赏</h4>
+        <p>英文书法频道为大家分享一些优雅的英文书法字体以及一些英文书法的自学资料,包括有英文字体书写技巧/英文习题练习要点/英文字体设计英文书法作品欣赏等.</p>
+    </div>
     <!--    每个功能模块的div-->
-    <div>
+    <div class="div-module-description">
         <h4>英语书法的知识</h4>
-        <p>　英文作为一种国际通用语言的重要性已经得到了我国基础教育的普遍认可。英文书法相对于汉语书法而言,其实要简单的多，写好英文文字则没有引起社会的足够重视。
+        <p>英文作为一种国际通用语言的重要性已经得到了我国基础教育的普遍认可。英文书法相对于汉语书法而言,其实要简单的多，写好英文文字则没有引起社会的足够重视。
             其实写得一手漂亮的英文书法字体也很重要的.....<a href="">阅读更多>></a></p>
     </div>
     <!--    最新文章-->
     <div class="container" style="margin: 0;padding:0;">
-        <h4>《英文书法》热门文章</h4>
+        <h4>热门文章</h4>
         <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
-        <ul th:each="article: ${mostPopularArticles}">
-            <li>
-                <a th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>
-                <p th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>
-            </li>
-        </ul>
+        <div class="Card div-article-margin">
+            <ul th:each="article: ${mostPopularArticles}">
+                <li class="Card div-article-margin">
+                    <a class="a-article-title" th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>
+                    <div>
+                        <p class="a-article-p" th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>
+                        <button type="button" class="Button qa-item-more Button-link">
+                            阅读全文
+                            <span style="display: inline-flex; align-items: center;">​<svg
+                                    class="Zi Zi--ArrowDown ContentItem-arrowIcon" fill="currentColor"
+                                    viewBox="0 0 24 24" width="24" height="24"><path
+                                    d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"
+                                    fill-rule="evenodd"></path></svg></span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     <!--    最新文章-->
+<!--    <div class="container" style="margin: 0;padding:0;">-->
+<!--        <h4>最新文章</h4>-->
+<!--        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>-->
+<!--        <div>-->
+<!--            <ul th:each="article: ${lastestArticles}">-->
+<!--                <li class="Card">-->
+<!--                    <a class="a-article-title" th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>-->
+<!--                    <p class="a-article-p" th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>-->
+<!--                    <button type="button" class="Button qa-item-more Button-link">-->
+<!--                        阅读全文-->
+<!--                        <span style="display: inline-flex; align-items: center;">​<svg-->
+<!--                                class="Zi Zi&#45;&#45;ArrowDown ContentItem-arrowIcon" fill="currentColor"-->
+<!--                                viewBox="0 0 24 24" width="24" height="24"><path-->
+<!--                                d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"-->
+<!--                                fill-rule="evenodd"></path></svg></span>-->
+<!--                    </button>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    所有文章-->
     <div class="container" style="margin: 0;padding:0;">
-        <h4>《英文书法》最新文章</h4>
+        <h4>所有文章</h4>
         <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
-        <ul th:each="article: ${lastestArticles}">
-            <li>
-                <a th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>
-                <p th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>
-            </li>
-        </ul>
+        <div class="Card div-article-margin">
+            <ul th:each="article: ${articles}">
+                <li class="Card div-article-margin">
+                    <a class="a-article-title" th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>
+                    <p class="a-article-p" th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>
+                    <button type="button" class="Button qa-item-more Button-link">
+                        阅读全文
+                        <span style="display: inline-flex; align-items: center;">​<svg
+                                class="Zi Zi--ArrowDown ContentItem-arrowIcon" fill="currentColor"
+                                viewBox="0 0 24 24" width="24" height="24"><path
+                                d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"
+                                fill-rule="evenodd"></path></svg></span>
+                    </button>
+                </li>
+            </ul>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
+
 </div>
 <!--尾部 链接 版权说明-->
 <div th:replace="footer.html"></div>

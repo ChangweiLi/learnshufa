@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::head-fragment(title,path)"></head>
+<body>
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
+<!--学习讨论区-类似知乎-->
+<div class="div-qa">
+    <div class="div-qa-ad"></div>
+    <!--    中间问题展示区-->
+    <div class="div-qa-left">
+        <div class="Card">
+            <nav class="nav-qa nav-qa-tab">
+                <a class="nav-qa-link is-active" href="#">推荐</a>
+                <a class="nav-qa-link" href="#">热榜</a>
+                <a class="nav-qa-link" href="#">最新</a>
+            </nav>
+            <!--            以下是问题列表-->
+            <div class="qa-content">
+                <!--                每一个小框-->
+                <div class="Card qa-item">
+                    <!--                    每一个小框内容-->
+                    <div class="Card feed" th:each="question:${questions}">
+                        <!--               article: ${latestArticles}         标题-->
+                        <div class="qa-item-title">
+                            <p th:text="${question.getId()}" style="display: none"></p>
+                            <p th:text="${question.getName()}" th:title="${question.getName()}"></p>
+                        </div>
+                        <!--                        内容-->
+                        <div class="qa-item-content">
+                            <p th:text="${question.getText()}" th:title="${question.getName()}"></p>
+                            <p th:text="${question.getPublishTime()}" th:title="${question.getName()}"></p>
+                            <button type="button" class="Button qa-item-more Button-link" onclick="readMore()">
+                                阅读全文
+                                <span style="display: inline-flex; align-items: center;">​<svg
+                                        class="Zi Zi--ArrowDown ContentItem-arrowIcon" fill="currentColor"
+                                        viewBox="0 0 24 24" width="24" height="24"><path
+                                        d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"
+                                        fill-rule="evenodd"></path></svg></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    右边提问区 以及热门推荐区-->
+    <div class="div-qa-right">
+        <!--        发布问题-->
+        <div class="Card div-qa-new">
+            <div>
+                <a class="nav-qa-link" target="_blank" th:href="@{~/shufa/newqa}" title="写想法">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="NewGlobalWrite-navIcon" fill="currentColor">
+                        <g fill="none" fill-rule="evenodd">
+                            <circle cx="20" cy="20" r="20" fill="#F4C807" opacity=".12"></circle>
+                            <path d="M6 6h28v28H6z"></path>
+                            <path fill="#F4C807"
+                                  d="M20.406 11.772l-2.172 2.176h-2.29c-1.438 0-1.875.085-2.322.324-.33.176-.575.422-.751.752-.24.448-.324.886-.324 2.326v7.12c0 1.44.085 1.878.324 2.326.176.33.421.576.75.752.421.225.834.314 2.08.323l7.35.001c1.438 0 1.876-.084 2.323-.324.33-.176.575-.422.751-.752.24-.448.324-.886.324-2.326v-4.905l2.172-2.175v7.08c0 1.94-.202 2.643-.58 3.352a3.95 3.95 0 0 1-1.643 1.645c-.708.379-1.41.58-3.346.58h-7.108c-1.936 0-2.639-.201-3.347-.58a3.95 3.95 0 0 1-1.642-1.645c-.378-.71-.58-1.413-.58-3.352v-7.12c0-1.94.202-2.643.58-3.352a3.95 3.95 0 0 1 1.642-1.645c.708-.379 1.41-.58 3.347-.58h4.462zm6.908-2.053c.384.116.747.338 1.168.759l.188.189c.42.421.642.785.758 1.17a1.98 1.98 0 0 1 0 1.163c-.116.385-.337.749-.758 1.17l-6.9 6.911c-.62.622-.827.81-1.078 1.004-.251.193-.496.34-.784.47-.288.131-.553.226-1.392.48l-1.088.332a1.303 1.303 0 0 1-1.625-1.629l.33-1.09c.255-.84.35-1.104.48-1.393.13-.29.277-.534.47-.785.193-.252.381-.46 1.001-1.081l6.9-6.911c.42-.421.784-.643 1.168-.76a1.97 1.97 0 0 1 1.162 0zm-3.204 4.096l-4.797 4.805c-.547.548-.709.723-.852.91-.112.146-.19.276-.265.443-.097.214-.175.44-.4 1.182l-.094.31.31-.095c.74-.225.965-.303 1.179-.4.167-.076.297-.154.442-.266.187-.143.361-.305.909-.853l4.797-4.805-1.23-1.23zm2.546-2.43c-.109.033-.23.11-.443.324l-.874.875 1.228 1.231.875-.876c.213-.213.29-.334.323-.444a.24.24 0 0 0 0-.153c-.033-.11-.11-.23-.323-.445l-.189-.188c-.213-.214-.334-.291-.443-.325a.238.238 0 0 0-.154 0z"
+                                  fill-rule="nonzero"></path>
+                        </g>
+                    </svg>
+                    <div class="div-qa-newWriteToptitle">写问题</div>
+                </a>
+                <a class="nav-qa-link" target="_blank" href="#" title="发视频">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="NewGlobalWrite-navIcon" fill="currentColor">
+                        <g fill="#FF9607" fill-rule="evenodd">
+                            <circle cx="20" cy="20" r="20" opacity=".12"></circle>
+                            <path d="M24.233 24.777v-9.555c0-.942-.748-1.706-1.67-1.706H13.61c-.922 0-1.67.764-1.67 1.707v9.554c0 .943.748 1.707 1.67 1.707h8.954c.921 0 1.669-.764 1.669-1.707zm3.478-10.349a2.302 2.302 0 0 1 3.297.243c.367.434.57.989.57 1.563v7.532c0 1.32-1.047 2.389-2.337 2.389a2.308 2.308 0 0 1-1.53-.583l-1.475-1.306v.512c0 2.073-1.644 3.753-3.672 3.753H13.61c-2.028 0-3.672-1.68-3.672-3.753v-9.555c0-2.074 1.644-3.754 3.672-3.754h8.954c2.028 0 3.672 1.68 3.672 3.754v.51l1.475-1.305zm-1.475 7.13l2.786 2.466a.33.33 0 0 0 .219.083.338.338 0 0 0 .334-.341v-7.532a.346.346 0 0 0-.082-.223.329.329 0 0 0-.47-.035l-2.787 2.466v3.116z"
+                                  fill-rule="nonzero"></path>
+                        </g>
+                    </svg>
+                    <div class="div-qa-newWriteToptitle">
+                        发视频
+                    </div>
+                </a>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <!--        最新模块-->
+        <div class="div-qa-latest">
+            <nav class="nav"></nav>
+        </div>
+    </div>
+</div>
+<div th:replace="footer.html"></div>
+</body>
+<script>
+    function readMore() {
+        var id = $(".qa-item-title p:first").val();
+        console.log("id = " +id);
+        window.open("[[@{/learnqa}]]"+'/'+5);
+        id = null;
+    }
+</script>
+</html>

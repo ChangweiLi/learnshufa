@@ -80,12 +80,12 @@ public interface ArticleMapper {
     List<Article> selectMostPopularSevenArticle();
 
     /**
-     * 查询英语文章中最新的10篇文章
+     * 查询英语文章中最新的6篇文章
      */
     List<Article> selectLatestTenEnglishArticles();
 
     /**
-     * 查询英语文章中热门的8篇文章
+     * 查询英语文章中热门的6篇文章
      */
     List<Article> selectMostPopularEightEnglishArticles();
 

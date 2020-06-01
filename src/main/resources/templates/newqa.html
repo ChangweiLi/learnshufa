@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::head-fragment(title,path)"></head>
+<body style="height: 100%">
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
+<div class="sf-center container">
+    <!--内容发布主体-->
+<!--    <form class="sf-center">-->
+        <input id="qa_title" class="input-article-title" type="text" placeholder="写问题">
+        <div class="div-resource-desc">
+            <h5 class="title-comment">问题描述：</h5>
+            <textarea id="qa_comment" class="input-comment-textarea" rows="1" spellcheck="false"
+                      style="overflow: auto hidden;box-sizing: border-box;height: 150px;width: 100%;
+                  direction: ltr;"></textarea>
+        </div>
+        <div id="more_information">
+<!--            <div class="">-->
+<!--                <label>问题标签:</label>-->
+<!--                <div class="">-->
+<!--                    <p>标签1</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="">-->
+<!--                <label>模块分类:</label>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <label>选择类型</label>-->
+<!--            </div>-->
+            <div>
+                <button class="btn btn-primary" onclick="submitQA()">发布问题</button>
+                <button class="btn btn-default" onclick="saveQA()">保存问题</button>
+                <button class="btn btn-default" onclick="window.history.back(-1)">返回</button>
+            </div>
+        </div>
+<!--    </form>-->
+</div>
+<div th:replace="footer.html"></div>
+</body>
+<script>
+   function submitQA() {
+       var title = $("#qa_title").val();
+       var comment = $("#qa_comment").val();
+       // var type = $("#type").val();
+       // var module = $("#module").val();
+       var data = {"title": title, "comment": comment
+           // , "text": text,"type":type,"module":module
+       };
+       console.log(comment);
+       if (title.trim() === "") {
+           alert("请填写问题标题");
+           return;
+       }
+       if (comment.trim() === "") {
+           alert("请填写问题内容描述");
+       } else {
+           $.ajax({
+               type: "POST",
+               url: "[[@{submitqa}]]",
+               data: data,
+               success: function (msg) {
+                   alert("发布成功");
+               },
+               error: function (msg) {
+                   alert("发布失败");
+               }
+           });
+       }
+   }
+
+   function savaQA(){
+
+   }
+</script>
+</html>

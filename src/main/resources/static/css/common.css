@@ -1,46 +1,100 @@
 /*body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}*/
-html{
+html {
     position: absolute;
-    height: 100%;
+    /*height: auto;*/
+    min-height: 100%;
     top: 0;
-    bottom:0;
-    left:0;
-    right:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
+
 body {
     margin: 0;
     padding: 0;
     color: #FFFFFF;
-    height: 100%;
+    /*height: 100%;*/
 }
-footer{
-    font-size: 0.8em;
+
+p{
+    font-size: 14px;
+}
+h3{
+    font-family: "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Monaco, monospace, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+h4{
+    float: left;
+    width: 100%;
+    color: #333;
+    FONT-SIZE: 14PX;
+    text-align: LEFT;
+    text-indent: 2em;
+    line-height: 24px;
+    margin: 2px;
+}
+footer {
     /*float: bottom;*/
-    /*position: absolute;*/
     bottom: 0;
-    background-color: #d7d4f0;
+    width: 100%;
+    height: 5%;
+    padding: 5px auto 5px auto;
+    background-color: #e8edf0;
+    font-size: 0.8em;
     text-align: center;
 }
 
+.a-article-title{
+    font-size: 16px;
+    font-family: 楷体;
+    width: inherit;
+    font-weight: 600;
+    text-align: center;
+    font-style: normal;
+    padding: 1px;
+    margin: 0;
+    /*text-align: center;*/
 
-.header-div {
-    display: inline;
+}
+.a-article-p{
+    font-size: 13px;
+    margin: 2px;
+    text-indent: 2em;
+    font-weight: 100;
+    overflow: hidden;
+}
+/*nav {*/
+/*    background-color: #E33E33;*/
+/*}*/
+.div-module-description{
+    margin: 5px;
+    padding: 2px;
+}
+
+.div-module-description p{
+    text-indent: 2em;
+    font-weight: 300;
+    /*font-family: 楷体;*/
+}
+.abox-title {
+    background-color: #e3d7de;
 }
 
 .sf-head {
+    display: flex;
     float: top;
     width: 100%;
     height: 30px;
-    padding: 3px;
     background-color: #FFFFFF;
     border-style: outset none outset none;
-    border-bottom: 1px solid #8D8D8D;
     min-width: 1000px;
 }
 
+.header-div {
+    flex: 1;
+}
+
 .sf-center {
-    height: auto;
-    min-height: 1000px;
+    min-height: 85%;
     width: 70%;
     margin: auto 5% auto 5%;
 }
@@ -48,21 +102,26 @@ footer{
 .box {
     width: 100%;
     height: auto;
-    min-width: 1000px;
 }
 
 .abox-list {
     width: 50%;
-    min-width: 500px;
+    min-width: 400px;
     height: 400px;
+    -webkit-box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    padding: 2px;
+    /*margin: 2px;*/
 }
 
 .abox-title {
     min-height: 40px;
     max-height: 50px;
-    background-color: #e8ffcc;
+    /*background-color: #fff1f2;*/
     position: relative;
     overflow: hidden;
+    -webkit-box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
 }
 
 .i-title {
@@ -73,7 +132,6 @@ footer{
 }
 
 .i-more {
-    /*position: absolute;*/
     float: right;
     color: white;
     height: 100%;
@@ -82,7 +140,6 @@ footer{
 .abox-img {
     float: left;
     width: 25%;
-    /*min-width: 100px;*/
 }
 
 .abox-img-a {
@@ -103,24 +160,21 @@ footer{
     width: 390px;
     height: 250px;
     min-width: 390px;
-    /*border: 2px solid gainsboro;*/
     border-radius: 5px;
     box-shadow: #8D8D8D 3px 3px 3px 3px;
-    /*border-radius: 25px;*/
-    /*border-style: wave;*/
     padding: 10px;
     margin: 20% auto;
 }
+
 /*注册表单div样式*/
-.sf-register-form{
+.sf-register-form {
     background-color: #ffffff;
-    width: 700px;
-    /*height: auto;*/
-    /*min-width: 400px;*/
+    width: 500px;
     border-radius: inherit;
     border-style: wave;
     padding: 10px;
     margin: 20% auto;
+    height: 100%;
 }
 
 .sf-div-input {
@@ -130,7 +184,6 @@ footer{
 .sf-loginbtn {
     width: 60px;
     height: 30px;
-    /*border: 1px solid #989898;*/
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -140,11 +193,31 @@ footer{
     font-weight: bold;
     text-shadow: 1px 1px 1px #666;
 }
-.article{
-    width: auto;
-    min-height: 800px;
+.div-pre-next{
+    margin: 20px 0;
 }
+.article {
+    width: auto;
+    padding: 0 30px;
+}
+.article-title{
 
+}
+.div-article-margin{
+    margin: 20px 20px;
+}
+.article-title-more{
+    display: flex;
+    margin: 20px;
+    font-weight: 200;
+}
+.div-article-author{
+    margin: 0 20px;
+}
+.article-title-more,.article-title-more p{
+    font-size: 14px;
+    font-weight: 100;
+}
 .login-body {
     background-repeat: no-repeat;
     background-size: 100%;
@@ -152,18 +225,185 @@ footer{
     overflow: hidden;
     margin: 10px;
 }
+
+.div-comment {
+    float: top;
+}
+
+.div-more-select {
+    padding: 10px;
+}
+
+.body-qa {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    background: #f6f6f6;
+    -webkit-tap-highlight-color: rgba(26, 26, 26, 0);
+}
+
 /* 书法文章标题输入框的样式*/
-#article-title{
+.input-article-title {
     outline-style: none;
     border: 0px;
     border-radius: 3px;
+    /*box-sizing: inherit;*/
     padding: 13px 14px;
-    width: 620px;
-    font-size: 15px;
+    width: 100%;
+    /*min-width: 500px;*/
+    font-size: 20px;
+    background-color: #efefef;
     font-weight: 700;
     font-family: "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS",
-      Monaco, monospace, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei",
-      FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+    Monaco, monospace, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei",
+    FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
 
+.div-qa {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-items: start;
+    width: 1200px;
+    padding: 0 16px;
+    margin: 10px auto;
+    height: 900px;
+}
 
+.div-qa-left {
+    margin-right: 10px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 800px;
+    /*background-color: #00a8c6;*/
+}
+
+.div-qa-right {
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    font-size: 14px;
+    /*background-color: #00d95a;*/
+}
+
+.div-qa-new {
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    padding: 20px 15px;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.div-qa-newWriteToptitle {
+    cursor: pointer;
+    width: 50px;
+    margin-right: 22px;
+}
+
+.Button {
+    display: inline-block;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 1px solid;
+    border-radius: 3px;
+    /*outline: none;*/
+    -webkit-appearance: none;
+}
+
+.qa-item-more {
+    padding: 0;
+    margin-left: 4px;
+    color: #175199;
+}
+
+.Button-link {
+    height: auto;
+    padding: 0;
+    line-height: inherit;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    outline: none;
+}
+
+.Card {
+    margin-bottom: 10px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.nav-qa {
+    display: flex;
+    height: 58px;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.nav-qa-tab {
+    border-bottom: 1px solid #f0f2f7;
+}
+
+.nav-qa-link.is-active {
+    color: #0084ff;
+    font-weight: 500;
+}
+
+.nav-qa-link {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+    color: #0C0C0C;
+    margin: 0 22px;
+}
+
+.qa-content {
+    /*padding: 20px;*/
+}
+
+.qa-item {
+    /*font-size: 20px;*/
+    /*font-weight: 600;*/
+    /*line-height: 1.6;*/
+    /*margin-top: -4px;*/
+    /*margin-bottom: -4px;*/
+    /*padding: 20px;*/
+    border-radius: 0;
+    overflow: visible;
+    overflow: initial;
+    position: relative;
+    padding: 16px 20px;
+}
+
+.qa-item-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.div-resource-desc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*首页书法学习网样式*/
+#header-title {
+    font-size: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+/*文章显示div*/
+#article-body{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 300;
+    text-indent: 2em;
+    line-height: 2em;
 }

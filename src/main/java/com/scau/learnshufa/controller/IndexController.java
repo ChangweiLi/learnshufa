@@ -1,10 +1,7 @@
 package com.scau.learnshufa.controller;
 
 
-import com.scau.learnshufa.entity.Article;
-import com.scau.learnshufa.entity.Module;
-import com.scau.learnshufa.entity.Type;
-import com.scau.learnshufa.entity.User;
+import com.scau.learnshufa.entity.*;
 import com.scau.learnshufa.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +32,8 @@ public class IndexController {
     private ModuleMapper moduleMapper;
     @Autowired
     private TypeMapper typeMapper;
+//    @Autowired
+//    private CommentMapper commentMapper;
     /**
      * 首页加载所有的文章信息
      * @return
@@ -53,12 +52,49 @@ public class IndexController {
         return modelAndView;
     }
 
+    /**
+     * 发布文章页面
+     * 仅仅返回页面
+     * @return
+     */
     @RequestMapping("newarticle")
-    public String newArticle(){
-        return "newarticle";
+    public ModelAndView newArticle(){
+        ModelAndView modelAndView = new ModelAndView();
+//        moduleMapper.selectModules();
+        List<Module> modules = moduleMapper.selectModules();
+        List<Type> types = typeMapper.selectTypes();
+        List<String> moduleNames = new ArrayList<String>();
+        List<String> typeNames = new ArrayList<String>();
+       for(int i=0;i<modules.size();i++){
+           moduleNames.add(modules.get(i).getName());
+       }
+       for(int j=0;j<types.size();j++){
+           typeNames.add(types.get(j).getName());
+       }
+//        System.out.println(moduleNames);
+//        System.out.println(typeNames);
+        modelAndView.addObject("moduleNames",moduleNames);
+        modelAndView.addObject("typeNames",typeNames);
+        modelAndView.setViewName("newarticle");
+        return modelAndView;
     }
 
+    /**
+     * 发布资源
+     * 仅仅返回资源页面
+     * @return
+     */
+//    @RequestMapping("newresource")
+//    public String newResource(){
+//        return "newresource";
+//    }
 
+    /**
+     * 提交新文章页面
+     * 添加参数
+     * @param request
+     * @return
+     */
     @RequestMapping("submitarticle")
     @ResponseBody
     public String sumbitArticle(HttpServletRequest request){
@@ -69,14 +105,33 @@ public class IndexController {
             Article article = new Article();
             article.setName(request.getParameter("title"));
             article.setText(request.getParameter("text"));
+            article.setTopic(request.getParameter("type"));
+            article.setSort(request.getParameter("module"));
             article.setPublishTime(LocalDateTime.now().toString());
             article.setReadnum(0);
             article.setLikes(0);
-//            article.set
             article.setAuthor("admin");
             articleMapper.insertSelective(article);
+            logger.warning("时间--》》"+article.getPublishTime()+"--《《保存文章"+article.getName()+"成功");
             return "OK";
         }
+    }
+
+    /**
+     * 提交文章评论
+     * 如果返回OK则表示发表成功否则返回失败
+     * @return
+     */
+    @RequestMapping("submitcomment")
+    @ResponseBody
+    public String submitComment(HttpServletRequest request){
+        Comment comment = new Comment();
+        comment.setContent(request.getParameter("comment"));
+        comment.setArticleId(String.valueOf(1241));
+        comment.setDate(LocalDateTime.now().toString());
+        comment.setLikes(0);
+        commentMapper.insertSelective(comment);
+        return "OK";
     }
 
     /**

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
+<head th:replace="header::head-fragment(title,path)"></head>
+<body style="height: 100%">
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
+<!--中间部分-->
+<div class="sf-center container">
+    <!--    路径导航-->
+    <ol class="breadcrumb">
+        <li><a th:href="@{~/shufa/index}">首页</a></li>
+        <li class="active"><a th:href="@{~/shufa/learnqa}" th:text="${question.getTopic()}">学习讨论区</a></li>
+        <li th:text="${question.getName()}">正文</li>
+    </ol>
+    <div class="article">
+        <div id="article-title">
+            <h2 th:text="${question.getName()}"></h2>
+            <p th:text="${question.getId()}" style="display: none"></p>
+            <p th:text="'作者:'+${question.getAuthor()}"></p>
+            <p th:text="'发布时间:'+${question.getPublishTime()}"></p>
+        </div>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <div id="article-body">
+            <p th:text="${question.getText()}"></p>
+        </div>
+    </div>
+    <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+    <div>
+        上一问：<a href="#">嘎嘎嘎嘎嘎</a>
+        下一问: <a href="#">fagagagag</a>
+    </div>
+    <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+    <!--    评论区  -->
+    <div class="div-comment">
+        <h3 class="title-comment">评论</h3>
+        <textarea id="comment" class="input-comment-textarea" rows="1" spellcheck="false"
+                  style="overflow: auto hidden;box-sizing: border-box;height: 80px;width: 90%;
+                  direction: ltr;"></textarea>
+        <button class="btn btn-default text-danger" onclick="submitComment()">发布</button>
+    </div>
+    <!--    评论展示区-->
+    <div>
+        <p>评论1</p>
+    </div>
+
+</div>
+<div th:replace="footer.html"></div>
+</body>
+<script>
+    function submitComment() {
+        var comment = $("#comment").val().trim();
+        if(comment ===""){
+            alert("请输入评论");
+        }
+        else{
+            var data = {"comment":comment};
+            $.ajax({
+                ype:"POST",
+                url:"[[@{/submitcomment}]]",
+                data:data,
+                success: function(msg){
+                    alert("发表评论成功");
+                },
+                error: function(msg){
+                    alert("发表评论失败");
+                }
+            });
+
+        }
+    }
+</script>
+</html>

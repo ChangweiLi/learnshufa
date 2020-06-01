@@ -27,9 +27,9 @@ public class EnglishController {
         /** 加载主英语语法模块页面的各种信息*/
         ModelAndView modelAndView = new ModelAndView();
         List<Article> mostPopularArticles = articleMapper.selectMostPopularEightEnglishArticles();
-        List<Article> lastestArticles = articleMapper.selectLatestTenEnglishArticles();
+        List<Article> articles = articleMapper.selectArticles();
         modelAndView.addObject("mostPopularArticles", mostPopularArticles);
-        modelAndView.addObject("lastestArticles", lastestArticles);
+        modelAndView.addObject("articles", articles);
         modelAndView.setViewName("english");
         return modelAndView;
     }

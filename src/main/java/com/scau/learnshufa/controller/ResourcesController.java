@@ -19,8 +19,9 @@ public class ResourcesController {
 
     @RequestMapping("/newresource")
     public String newResource(){
-        return "newresources";
+        return "newresource";
     }
+
     @RequestMapping("/resources/submitresources")
     public String  oneFileUpload(HttpServletRequest request){
         String realpath = request.getServletContext().getRealPath("uploadfiles");

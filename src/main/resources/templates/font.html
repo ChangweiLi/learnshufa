@@ -1,240 +1,115 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
-    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{css/common.css}" href="/static/css/common.css">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta charset="UTF-8">
-    <title>书法学习网</title>
-</head>
+<head th:replace="header::head-fragment(title,path)"></head>
 <body>
-<!--头部广告或者相关链接-->
-<header class="sf-head">
-    <!--头部左侧 时间日期 天气-->
-    <div class="header-div" style="float: left">
-        2019/11/23 10:26:33 晴 30摄氏度
-    </div>
-    <!--中间logo部分-->
-    <div class="header-div" style="margin: 0 auto;text-align: center">
-        <a th:href="@{index}">书法学习网</a>
-    </div>
-    <!--右侧登录用户信息-->
-    <div class="header-div" style="float: right">
-        <a th:href="@{login}">用户登录</a>/<a th:href="@{register}">注册</a>
-    </div>
-</header>
-<!--导航栏-->
-<!--style="background-color: #34b7a7;"-->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div>
-            <!--向左看齐-->
-            <ul class="nav navbar-nav navbar-left">
-
-                <li class="active"><a th:href="@{index}">首页</a></li>
-                <li><a th:href="@{famous}">书法作品欣赏</a></li>
-                <li><a th:href="@{famous}">名人书法欣赏</a></li>
-                <li><a th:href="@{font}">书法字体</a></li>
-                <li><a th:href="@{writingbrush}">毛笔书法教程</a></li>
-                <li><a th:href="@{pen}">钢笔书法教程</a></li>
-                <li><a th:href="@{hardpen}">硬笔书法教程</a></li>
-                <li><a th:href="@{english}">英语书法</a></li>
-                <li><a th:href="@{resources}">书法资料</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
 <!--中间部分-->
 <div class="sf-center container">
-    <div class="box row">
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">最新文章</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-            <!--         文章图片-->
-            <div class="abox-img">
-                <div class="abox-img-a">
-                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">
-                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="历代名家福字书">
-                    </a>
-                    <a th:href="@{famous}" title="历代名家福字书" target="_blank">历代名家福字书</a>
-                </div>
-                <div class="ib">
-                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">
-                        <img th:src="@{images/11Y_121914530XV6.jpg}" style="width: 180px;height: 130px" alt="关于福字的历史">
-                    </a>
-                    <a th:href="@{famous}" title="关于福字的历史" target="_blank">关于福字的历史</a>
-                </div>
-            </div>
-            <!--         文章列表-->
-            <div class="abox-wt-list">
-                <h3>
-                    <small>
-                        <a href="#" title="春节贴福字有什么讲究" target="_blank">春节贴福字有什么讲究</a>
-                    </small>
-                </h3>
-                <p class="wt-2">春节贴福字，无论是现在还是过去，都寄托了人们对幸福生活的向往，也是对美好未来的祝愿。每逢新春佳节，家家户户都要..</p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏1</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏2</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏3</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏4</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏5</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏6</a>
-                </p>
-                <p>
-                    <a href="#" target="_blank">[书法作品欣赏]</a>
-                    <a href="#" title="2019春节新春祝福——福字欣赏" class="s3" target="_blank">2019春节新春祝福——福字欣赏7</a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">最热文章</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">书法作品欣赏</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">名人书法欣赏</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">毛笔书法欣赏</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">钢笔书法欣赏</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">硬笔书法欣赏</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">英语书法欣赏</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
-        </div>
-        <div class="abox-list col-lg-6 col-xs-12">
-            <div class="abox-title">
-                <h3 class="i-title">
-                    <small>
-                        <b>
-                            <a th:href="@{famous}" style="color: #ffffff">书法相关资料</a>
-                        </b>
-                    </small>
-                </h3>
-                <p class="i-more">
-                    <a th:href="@{famous}" style="color: #ffffff">更多>></a>
-                </p>
-            </div>
+    <!--    路径导航-->
+    <ol class="breadcrumb">
+        <li><a th:href="@{index}">首页</a></li>
+        <li class="active"><a th:href="@{english}">英文书法</a></li>
+    </ol>
+    <!--    主页内容抬头简介-->
+    <div class="div-module-description">
+        <h4>英文书法作品欣赏</h4>
+        <p>英文书法频道为大家分享一些优雅的英文书法字体以及一些英文书法的自学资料,包括有英文字体书写技巧/英文习题练习要点/英文字体设计英文书法作品欣赏等.</p>
+    </div>
+    <!--    每个功能模块的div-->
+    <div class="div-module-description">
+        <h4>英语书法的知识</h4>
+        <p>英文作为一种国际通用语言的重要性已经得到了我国基础教育的普遍认可。英文书法相对于汉语书法而言,其实要简单的多，写好英文文字则没有引起社会的足够重视。
+            其实写得一手漂亮的英文书法字体也很重要的.....<a href="">阅读更多>></a></p>
+    </div>
+    <!--    最新文章-->
+    <div class="container" style="margin: 0;padding:0;">
+        <h4>热门文章</h4>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <div class="Card div-article-margin">
+<!--            <ul th:each="article: ${mostPopularArticles}">-->
+<!--                <li class="Card div-article-margin">-->
+<!--                    <a class="a-article-title" th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>-->
+<!--                    <div>-->
+<!--                        <p class="a-article-p" th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>-->
+<!--                        <button type="button" class="Button qa-item-more Button-link">-->
+<!--                            阅读全文-->
+<!--                            <span style="display: inline-flex; align-items: center;">​<svg-->
+<!--                                    class="Zi Zi&#45;&#45;ArrowDown ContentItem-arrowIcon" fill="currentColor"-->
+<!--                                    viewBox="0 0 24 24" width="24" height="24"><path-->
+<!--                                    d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"-->
+<!--                                    fill-rule="evenodd"></path></svg></span>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
         </div>
     </div>
+    <!--    最新文章-->
+    <!--    <div class="container" style="margin: 0;padding:0;">-->
+    <!--        <h4>最新文章</h4>-->
+    <!--        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>-->
+    <!--        <div>-->
+    <!--            <ul th:each="article: ${lastestArticles}">-->
+    <!--                <li class="Card">-->
+    <!--                    <a class="a-article-title" th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>-->
+    <!--                    <p class="a-article-p" th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>-->
+    <!--                    <button type="button" class="Button qa-item-more Button-link">-->
+    <!--                        阅读全文-->
+    <!--                        <span style="display: inline-flex; align-items: center;">​<svg-->
+    <!--                                class="Zi Zi&#45;&#45;ArrowDown ContentItem-arrowIcon" fill="currentColor"-->
+    <!--                                viewBox="0 0 24 24" width="24" height="24"><path-->
+    <!--                                d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"-->
+    <!--                                fill-rule="evenodd"></path></svg></span>-->
+    <!--                    </button>-->
+    <!--                </li>-->
+    <!--            </ul>-->
+    <!--        </div>-->
+
+    <!--    </div>-->
+    <!--    所有文章-->
+    <div class="container" style="margin: 0;padding:0;">
+        <h4>所有文章</h4>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+        <div class="Card div-article-margin">
+<!--            <ul th:each="article: ${articles}">-->
+<!--                <li class="Card div-article-margin">-->
+<!--                    <a class="a-article-title" th:href="@{'english/'+${article.getId()}}" th:text="${article.getName()}">商务常用的英文字体</a>-->
+<!--                    <p class="a-article-p" th:text="${article.getText()}" style="height: 40px;overflow: hidden"></p>-->
+<!--                    <button type="button" class="Button qa-item-more Button-link">-->
+<!--                        阅读全文-->
+<!--                        <span style="display: inline-flex; align-items: center;">​<svg-->
+<!--                                class="Zi Zi&#45;&#45;ArrowDown ContentItem-arrowIcon" fill="currentColor"-->
+<!--                                viewBox="0 0 24 24" width="24" height="24"><path-->
+<!--                                d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"-->
+<!--                                fill-rule="evenodd"></path></svg></span>-->
+<!--                    </button>-->
+<!--                </li>-->
+<!--            </ul>-->
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
 </div>
 <!--尾部 链接 版权说明-->
-<footer>
-    <p>Copyright @2019-2020 书法学习网 版权所有
-    <p>我们采用的作品包括内容和图片全部来源于网络用户和读者投稿，我们不确定投稿用户享有完全著作权，根据《信息网络传播权保护条例》，
-        如果侵犯了你的权利，请联系:1369990551@qq.com, 我站将及时删除。</p>
-</footer>
+<div th:replace="footer.html"></div>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::head-fragment(title,path)"></head>
+<body style="height: 100%">
+<header class="sf-head" th:replace="header::header-fragment"></header>
+<nav th:replace="header::nav-fragment"></nav>
+<div class="sf-center container">
+    <!--资源发布主体-->
+    <form class="sf-center">
+        <label for="article_title">
+            <input id="article_title" class="input-article-title" type="text" placeholder="请输入文章标题">
+        </label>
+        <div class="div-resource-desc">
+            <h3 class="title-comment">资源简介:</h3>
+            <textarea id="comment" class="input-comment-textarea" rows="1" spellcheck="false"
+                      style="overflow: auto hidden;box-sizing: border-box;height: 80px;width: 90%;
+                  direction: ltr;"></textarea>
+        </div>
+        <div id="more_information">
+            <div class="">
+                <label>资源标签:</label>
+                <div class="">
+                <p>标签1</p>
+                </div>
+            </div>
+            <div class="">
+                <label>资源分类:</label>
+            </div>
+            <div>
+                <label>资源类型</label>
+            </div>
+            <div>
+                <button class="btn btn-primary" onclick="submitArticle()">发布资源</button>
+                <button class="btn btn-default" onclick="saveArticle()">保存资源</button>
+                <button class="btn btn-default" onclick="window.history.back(-1)">返回</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div th:replace="footer.html"></div>
+</body>
+</html>
